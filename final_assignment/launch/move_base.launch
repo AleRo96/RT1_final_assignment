@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<include file="$(find final_assignment)/launch/simulation_gmapping.launch"></include>
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find final_assignment)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find final_assignment)/param/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find final_assignment)/param/local_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find final_assignment)/param/global_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find final_assignment)/param/base_local_planner_params.yaml" command="load"/>
+    <rosparam file="$(find final_assignment)/param/move_base_params.yaml" command="load"/>
+  </node>
+    <arg name="user_choice" default= "4"/>
+
+    <param name="choice" value="$(arg user_choice)" />
+
+    <node pkg="final_assignment" type="random_targetserver.py" name="random_targetserver" output="screen"/>
+    <node pkg="final_assignment" type="wall_follow_service_m.py" name="wall_follower"/>
+    <node pkg="final_assignment" type="input_targetserver.py" name="input_targetserver" output="screen"/>    
+    <node pkg="final_assignment" type="user_interface.py" name="user_interface"/>
+    <node pkg="final_assignment" type="robot_control.py" name="robot_control" />
+
+</launch>
