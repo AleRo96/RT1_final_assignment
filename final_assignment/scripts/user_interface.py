@@ -6,11 +6,7 @@ from std_srvs.srv import *
 
 #state = 0
 
-#def clbk_interface():
-
-def main():
-	rospy.init_node('user_interface')
-	
+def clbk_interface():
 	mystring_ = """
 	1) Move randomly.
 	2) Choise a target.
@@ -31,8 +27,12 @@ def main():
 			break;
 		else:
 			print("Invalid statement")
-	#rospy.service('\interface',SetBool,clbk_interface)
+	rospy.service('\interface',SetBool,clbk_interface)
 
+def main():
+	rospy.init_node('user_interface')
+	
+	
 	return[]
 
         rospy.spin()
