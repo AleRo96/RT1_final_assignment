@@ -23,4 +23,18 @@ rosrun final_assignment input_targetserver.py
 
 ### Description of the content
 
+The package contains two servers:
+
+- random_values
+- target_values
+
+And five different nodes:
+
+- user_interface
+- robot_control
+- input_targetserver
+- random_targetserver
+- wall_follow_service_m
+
+
 
