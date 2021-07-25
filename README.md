@@ -10,7 +10,7 @@ In the second and in the third window we can run the two nodes by executing:
 rosrun final_assignment user_interface.py
 ```
  and
-``` 
+...
 rosrun final_assignment robot_control.py
 ...
 
@@ -18,3 +18,5 @@ When we run the user interface, at the mo
 
 
 ### Description of the content
+
+
